@@ -11,29 +11,29 @@ const certifications = [
   {
     title: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
-    date: "2023",
+    date: "2025",
     description:
       "Foundational knowledge of AWS cloud services, architecture, and security.",
     skills: ["AWS", "Cloud Architecture", "Security", "Best Practices"],
-    link: "#",
+    link: "https://www.credly.com/badges/723b8394-a364-4831-8b22-87d8cf4afe0f",
   },
   {
-    title: "Docker & Kubernetes Specialist",
-    issuer: "Linux Academy",
-    date: "2023",
+    title: "AWS Certified Solutions Architect Associate",
+    issuer: "Udemy",
+    date: "2025",
     description:
-      "Container orchestration, deployment automation, and microservices architecture.",
-    skills: ["Docker", "Kubernetes", "Containers", "DevOps"],
-    link: "#",
+      "Comprehensive knowledge of designing distributed systems, scalable architectures, and cost-optimized solutions on AWS.",
+    skills: ["AWS", "Solution Architecture", "EC2", "S3", "VPC", "IAM"],
+    link: "https://www.udemy.com/certificate/UC-feb813ea-dba1-474b-9f50-53e38b40c7f5/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com",
   },
   {
-    title: "Full-Stack Web Development",
-    issuer: "Udemy Professional",
-    date: "2022",
+    title: "DevOps Beginners to Advanced with Projects",
+    issuer: "Udemy",
+    date: "2025",
     description:
-      "Advanced techniques in React, Node.js, and database design for production applications.",
-    skills: ["React", "Node.js", "Databases", "Full-Stack"],
-    link: "#",
+      "Comprehensive DevOps training covering CI/CD pipelines, containerization, automation, and infrastructure as code with hands-on projects.",
+    skills: ["CI/CD", "Docker", "Jenkins", "Git", "Linux", "Automation"],
+    link: "https://udemy-certificate.s3.amazonaws.com/pdf/UC-e6046e86-75ff-46b3-a4c9-34f92f57ef0c.pdf",
   },
 ];
 
@@ -129,14 +129,21 @@ export function CertificationsSection() {
                       </div>
                     </div>
 
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="w-full mt-6 justify-center"
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full mt-6"
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      View Certificate
-                    </Button>
+                      <Button
+                        variant="ghost"
+                        size="sm"
+                        className="w-full justify-center"
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2" />
+                        View Certificate
+                      </Button>
+                    </a>
                   </div>
                 </div>
               ))}

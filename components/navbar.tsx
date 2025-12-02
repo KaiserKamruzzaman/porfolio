@@ -74,7 +74,7 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer"
+                className="text-base font-medium text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer"
               >
                 {link.label}
               </a>
@@ -108,7 +108,7 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer"
+                className="block px-4 py-2 text-base font-medium text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer"
               >
                 {link.label}
               </a>
