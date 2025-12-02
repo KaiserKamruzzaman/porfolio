@@ -47,13 +47,14 @@ export function HeroSection() {
               </h1>
 
               <p className="text-xl md:text-2xl text-foreground/80 font-medium">
-                Software Engineer & Tech Enthusiast
+                Software Engineer & Cloud Practitioner
               </p>
 
               <p className="text-lg text-foreground/60 leading-relaxed max-w-md">
-                Building scalable systems and crafting elegant solutions.
-                Specialized in full-stack development, cloud architecture, and
-                DevOps automation. Based in Duisburg, Germany.
+                Building robust, scalable systems through clean code.
+                Specializing in cloud platforms and automation.Delivering
+                enterprise-grade solutions that optimize workflows and drive
+                operational efficiency.Based in Germany.
               </p>
             </div>
 

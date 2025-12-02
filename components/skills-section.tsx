@@ -2,7 +2,7 @@
 
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { useInView } from "@/hooks/use-in-view";
-import { Code2, Cloud, Database, Wrench } from "lucide-react";
+import { Code2, Cloud, Database, Wrench, Layers } from "lucide-react";
 
 const skillCategories = [
   {
@@ -54,6 +54,12 @@ const skillCategories = [
       "Chrome DevTools",
       "Linux",
     ],
+    color: "from-indigo-500 to-blue-500",
+  },
+  {
+    title: "Concepts & Architecture",
+    icon: Layers,
+    skills: ["IaC", "CI/CD", "OOP", "REST APIs", "Monitoring & Logging"],
     color: "from-indigo-500 to-blue-500",
   },
 ];
