@@ -55,15 +55,12 @@ export function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={ref}
-          className={`space-y-2 mb-16 transition-all duration-1000 ${
+          className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
             isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
-          <p className="text-primary dark:text-secondary text-sm font-semibold tracking-wider uppercase">
-            Get In Touch
-          </p>
           <h2 className="text-4xl md:text-5xl font-display font-bold">
-            Let's Connect
+            Get In Touch
           </h2>
         </div>
 
@@ -81,8 +78,9 @@ export function ContactSection() {
                 Let's Connect
               </h3>
               <p className="text-lg text-foreground/60 max-w-lg">
-                Have a project in mind? I'm always open to discussing new
-                opportunities and exploring innovative solutions.
+                I'm always interested in discussing new opportunities,
+                innovative projects, or potential collaborations. Feel free to
+                reach out!
               </p>
             </div>
 

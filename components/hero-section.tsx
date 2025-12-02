@@ -40,14 +40,14 @@ export function HeroSection() {
             className={`space-y-8 ${isLoaded ? "animate-slide-in-left" : ""}`}
           >
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-display font-bold text-balance leading-tight">
+              <h1 className="text-4xl md:text-7xl font-display font-bold text-balance leading-tight">
                 <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                   Kaiser Kamruzzaman
                 </span>
               </h1>
 
               <p className="text-xl md:text-2xl text-foreground/80 font-medium">
-                Software Engineer & DevOps Specialist
+                Software Engineer & Tech Enthusiast
               </p>
 
               <p className="text-lg text-foreground/60 leading-relaxed max-w-md">
@@ -65,17 +65,18 @@ export function HeroSection() {
                   <ChevronRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="#contact">
+              {/* <Link href="#contact">
                 <Button
                   variant="outline"
-                  className="h-12 px-8 text-base font-semibold bg-transparent"
+                  className="h-12 px-8 text-base font-semibold bg-transparent "
                 >
                   Get in Touch
                 </Button>
-              </Link>
+              </Link> */}
               <button
                 onClick={handleDownloadResume}
-                className="h-12 px-8 text-base font-semibold bg-transparent border border-primary/30 hover:border-primary/60 text-foreground hover:bg-primary/10 dark:hover:bg-primary/20 transition-all rounded-lg flex items-center gap-2"
+                className="h-12 px-8 text-base font-semibold bg-transparent border border-primary/30 hover:border-primary/60 
+                text-foreground hover:bg-primary/10 dark:hover:bg-primary/20 transition-all rounded-lg flex items-center gap-2"
               >
                 <span className="text-lg">⬇</span>
                 Download Resume
@@ -160,7 +161,7 @@ export function HeroSection() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <span className="text-sm text-foreground/50">Scroll to explore</span>
           <svg
             className="w-6 h-6 text-primary/50"

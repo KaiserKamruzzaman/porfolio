@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { useInView } from "@/hooks/use-in-view"
-import { MapPin, Calendar } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { useInView } from "@/hooks/use-in-view";
+import { MapPin, Calendar } from "lucide-react";
 
 const experiences = [
   {
@@ -29,10 +29,10 @@ const experiences = [
       "Task Management System for employees",
     ],
   },
-]
+];
 
 export function ExperienceSection() {
-  const [ref, isInView] = useInView()
+  const [ref, isInView] = useInView();
 
   return (
     <ScrollReveal>
@@ -40,14 +40,15 @@ export function ExperienceSection() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={ref}
-            className={`space-y-2 mb-16 transition-all duration-1000 ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
+              isInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="text-primary dark:text-secondary text-sm font-semibold tracking-wider uppercase">
-              Professional Journey
-            </p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold">Experience</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold">
+              Experience
+            </h2>
           </div>
 
           <div className="space-y-8">
@@ -55,7 +56,9 @@ export function ExperienceSection() {
               <div
                 key={exp.company}
                 className={`transition-all duration-1000 ${
-                  isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                  isInView
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
@@ -65,7 +68,9 @@ export function ExperienceSection() {
 
                   <div className="space-y-3">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                      <h3 className="text-2xl font-display font-bold text-foreground">{exp.role}</h3>
+                      <h3 className="text-2xl font-display font-bold text-foreground">
+                        {exp.role}
+                      </h3>
                       <div className="flex items-center gap-2 text-sm text-foreground/60">
                         <Calendar className="w-4 h-4" />
                         {exp.period}
@@ -82,7 +87,10 @@ export function ExperienceSection() {
 
                     <ul className="space-y-2 mt-4">
                       {exp.highlights.map((highlight) => (
-                        <li key={highlight} className="flex items-start gap-3 text-foreground/70">
+                        <li
+                          key={highlight}
+                          className="flex items-start gap-3 text-foreground/70"
+                        >
                           <span className="inline-block w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
                           <span>{highlight}</span>
                         </li>
@@ -96,5 +104,5 @@ export function ExperienceSection() {
         </div>
       </section>
     </ScrollReveal>
-  )
+  );
 }

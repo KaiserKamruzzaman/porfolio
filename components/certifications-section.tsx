@@ -1,18 +1,19 @@
-"use client"
+"use client";
 
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { useInView } from "@/hooks/use-in-view"
-import { Award, ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useRef } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { useInView } from "@/hooks/use-in-view";
+import { Award, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const certifications = [
   {
     title: "AWS Certified Cloud Practitioner",
     issuer: "Amazon Web Services",
     date: "2023",
-    description: "Foundational knowledge of AWS cloud services, architecture, and security.",
+    description:
+      "Foundational knowledge of AWS cloud services, architecture, and security.",
     skills: ["AWS", "Cloud Architecture", "Security", "Best Practices"],
     link: "#",
   },
@@ -20,7 +21,8 @@ const certifications = [
     title: "Docker & Kubernetes Specialist",
     issuer: "Linux Academy",
     date: "2023",
-    description: "Container orchestration, deployment automation, and microservices architecture.",
+    description:
+      "Container orchestration, deployment automation, and microservices architecture.",
     skills: ["Docker", "Kubernetes", "Containers", "DevOps"],
     link: "#",
   },
@@ -28,43 +30,53 @@ const certifications = [
     title: "Full-Stack Web Development",
     issuer: "Udemy Professional",
     date: "2022",
-    description: "Advanced techniques in React, Node.js, and database design for production applications.",
+    description:
+      "Advanced techniques in React, Node.js, and database design for production applications.",
     skills: ["React", "Node.js", "Databases", "Full-Stack"],
     link: "#",
   },
-]
+];
 
 export function CertificationsSection() {
-  const [ref, isInView] = useInView()
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [ref, isInView] = useInView();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const scrollAmount = 400
-      const scrollLeft = scrollContainerRef.current.scrollLeft
+      const scrollAmount = 400;
+      const scrollLeft = scrollContainerRef.current.scrollLeft;
       scrollContainerRef.current.scrollTo({
-        left: direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount,
+        left:
+          direction === "left"
+            ? scrollLeft - scrollAmount
+            : scrollLeft + scrollAmount,
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   return (
     <ScrollReveal>
-      <section id="certifications" className="relative py-20 md:py-32 bg-background dark:bg-slate-950/50">
+      <section
+        id="certifications"
+        className="relative py-20 md:py-32 bg-background dark:bg-slate-950/50"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={ref}
             className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+              isInView
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
             }`}
           >
-            <p className="text-primary dark:text-secondary text-sm font-semibold tracking-wider uppercase">
-              Professional Development
-            </p>
-            <h2 className="text-4xl md:text-5xl font-display font-bold">Certifications & Training</h2>
+            <h2 className="text-4xl md:text-5xl font-display font-bold">
+              Certifications & Training
+            </h2>
             <p className="text-lg text-foreground/60 max-w-2xl mx-auto pt-4">
-              Industry-recognized certifications and specialized training programs
+              Continuous learning and professional development through
+              industry-recognized certifications and specialized training
+              programs.
             </p>
           </div>
 
@@ -77,7 +89,9 @@ export function CertificationsSection() {
                 <div
                   key={cert.title}
                   className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start transition-all duration-1000 ${
-                    isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+                    isInView
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10"
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
@@ -94,10 +108,14 @@ export function CertificationsSection() {
                         <h3 className="text-2xl font-display font-bold text-foreground group-hover:text-secondary transition-colors">
                           {cert.title}
                         </h3>
-                        <p className="text-sm text-foreground/60 mt-1">{cert.issuer}</p>
+                        <p className="text-sm text-foreground/60 mt-1">
+                          {cert.issuer}
+                        </p>
                       </div>
 
-                      <p className="text-foreground/70 leading-relaxed">{cert.description}</p>
+                      <p className="text-foreground/70 leading-relaxed">
+                        {cert.description}
+                      </p>
 
                       <div className="flex flex-wrap gap-2 pt-2">
                         {cert.skills.map((skill) => (
@@ -111,7 +129,11 @@ export function CertificationsSection() {
                       </div>
                     </div>
 
-                    <Button variant="ghost" size="sm" className="w-full mt-6 justify-center">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="w-full mt-6 justify-center"
+                    >
                       <ExternalLink className="w-4 h-4 mr-2" />
                       View Certificate
                     </Button>
@@ -138,5 +160,5 @@ export function CertificationsSection() {
         </div>
       </section>
     </ScrollReveal>
-  )
+  );
 }
