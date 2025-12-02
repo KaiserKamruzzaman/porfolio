@@ -10,23 +10,32 @@ const projects = [
   {
     title: "MES (Manufacturing Execution System)",
     description:
-      "Collaboration platform for 10+ teams managing 20 production stages with real-time tracking from start to shipping.",
+      "Enterprise web application enabling seamless collaboration among 10+ teams across 20 production steps, with real-time tracking from production start to final shipping.",
     highlights: [
-      "Real-time analytics for performance",
-      "Increased daily production by 7x",
-      "Advanced order tracking system",
+      "Improved daily production nearly 7x through optimization",
+      "Real-time tracking & tracing for every product stage",
+      "Advanced analytics for team & employee performance",
+      "API integration for data collection, notifications & forecasting",
     ],
-    tech: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Chart.js"],
+    tech: [
+      "Next.js",
+      "Node.js",
+      "Chart.js",
+      "REST API",
+      "PostgreSQL",
+      "Prisma",
+    ],
     link: "#",
   },
   {
     title: "OEM Portal for Doctors & Distributors",
     description:
-      "Fully branded ordering and tracking portal with automated communication and production synchronization.",
+      "Customizable OEM portal enabling doctors and distributors to manage orders, communicate with the company, and track production to shipment status while maintaining brand identity.",
     highlights: [
-      "Integrated with MES",
-      "Automated workflows",
-      "Real-time order tracking",
+      "Seamlessly integrated with MES for automated production",
+      "White-label design for easy client branding customization",
+      "End-to-end order management & real-time status tracking",
+      "Direct communication channel between OEM providers & company",
     ],
     tech: ["React", "Node.js", "PostgreSQL", "REST API"],
     link: "#",
@@ -34,13 +43,14 @@ const projects = [
   {
     title: "Complaint Management System",
     description:
-      "PHP-based workflow automation system optimized for 30% performance improvement with comprehensive reporting.",
+      "Comprehensive BPO complaint tracking system streamlining customer issue resolution with automated workflows and real-time status monitoring.",
     highlights: [
-      "30% performance optimization",
-      "Advanced reporting features",
-      "Automated tracking system",
+      "Reduced page load time by 30% through query optimization",
+      "User authentication, complaint logging & status tracking modules",
+      "Automated daily reporting workflows for agent-supervisor transparency",
+      "Enhanced system performance via optimized database & session handling",
     ],
-    tech: ["PHP", "MySQL", "Laravel", "JavaScript"],
+    tech: ["PHP(OOP)", "Laravel", "jQuery", "REST API", "MySQL"],
     link: "#",
   },
 ];
@@ -86,7 +96,7 @@ export function ProjectsSection() {
           <div className="relative group">
             <div
               ref={scrollContainerRef}
-              className="flex gap-6 lg:gap-8 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+              className="flex gap-6 lg:gap-8 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory scrollbar-hide"
             >
               {projects.map((project, index) => (
                 <div
