@@ -15,7 +15,7 @@ export function HeroSection() {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Kaiser_kamruzzaman_resume.pdf";
+    link.href = "./Kaiser_kamruzzaman_resume.pdf";
     link.download = "Kaiser_Kamruzzaman_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -40,12 +40,6 @@ export function HeroSection() {
             className={`space-y-8 ${isLoaded ? "animate-slide-in-left" : ""}`}
           >
             <div className="space-y-4">
-              <div className="inline-block px-4 py-2 bg-primary/10 dark:bg-primary/20 border border-primary/30 rounded-full">
-                <p className="text-sm font-medium text-primary dark:text-secondary">
-                  Welcome to my digital portfolio
-                </p>
-              </div>
-
               <h1 className="text-5xl md:text-7xl font-display font-bold text-balance leading-tight">
                 <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
                   Kaiser Kamruzzaman
