@@ -1,38 +1,38 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Moon, Sun, Menu, X } from "lucide-react"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Moon, Sun, Menu, X } from "lucide-react";
 
 export function Navbar() {
-  const [isDark, setIsDark] = useState(true)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isDark, setIsDark] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme")
-    const isDarkMode = savedTheme === "light" ? false : true
-    setIsDark(isDarkMode)
+    const savedTheme = localStorage.getItem("theme");
+    const isDarkMode = savedTheme === "light" ? false : true;
+    setIsDark(isDarkMode);
 
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleDarkMode = () => {
     if (isDark) {
-      document.documentElement.classList.remove("dark")
-      localStorage.setItem("theme", "light")
-      setIsDark(false)
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+      setIsDark(false);
     } else {
-      document.documentElement.classList.add("dark")
-      localStorage.setItem("theme", "dark")
-      setIsDark(true)
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+      setIsDark(true);
     }
-  }
+  };
 
   const navLinks = [
     { label: "About", href: "#about" },
@@ -41,16 +41,16 @@ export function Navbar() {
     { label: "Projects", href: "#projects" },
     { label: "Certifications", href: "#certifications" },
     { label: "Contact", href: "#contact" },
-  ]
+  ];
 
   const handleNavClick = (e, href) => {
-    e.preventDefault()
-    const element = document.querySelector(href)
+    e.preventDefault();
+    const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" })
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-    setIsMobileMenuOpen(false)
-  }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <nav
@@ -64,7 +64,7 @@ export function Navbar() {
             href="#"
             className="text-xl font-display font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
           >
-            Kaiser.Dev
+            Kaiser Kamruzzaman
           </Link>
 
           {/* Desktop Menu */}
@@ -117,5 +117,5 @@ export function Navbar() {
         )}
       </div>
     </nav>
-  )
+  );
 }
