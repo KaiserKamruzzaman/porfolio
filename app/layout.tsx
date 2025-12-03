@@ -11,9 +11,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Kaiser Kamruzzaman | Software Engineer & DevOps",
+  title: "Kaiser Kamruzzaman | Software Engineer & DevOps Specialist",
   description:
-    "Premium portfolio of Kaiser Kamruzzaman - Software Engineer and DevOps Specialist based in Germany",
+    "Experienced Software Engineer specializing in full-stack development, cloud architecture, and DevOps automation. Building scalable systems with React, Node.js, AWS, and modern technologies.",
 };
 
 export default function RootLayout({
