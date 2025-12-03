@@ -1,14 +1,14 @@
-import { MetadataRoute } from 'next'
- 
+import { MetadataRoute } from "next";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://kaiserkamruzzaman.vercel.app' // Update with your actual domain
- 
+  const baseUrl = "https://kaiserkamruzzaman.com";
+
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
+      changeFrequency: "monthly",
       priority: 1,
     },
-  ]
+  ];
 }
