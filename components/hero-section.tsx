@@ -137,7 +137,7 @@ export function HeroSection() {
               {/* Profile Image Container */}
               <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-primary/50 dark:border-primary/40 shadow-2xl bg-gradient-to-br from-card to-muted">
                 <img
-                  src="./kaiser.png"
+                  src="./image.jpeg"
                   alt="Kaiser Kamruzzaman"
                   className="w-full h-full object-cover"
                 />

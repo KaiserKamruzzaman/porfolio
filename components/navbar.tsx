@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Moon, Sun, Menu, X } from "lucide-react";
 
@@ -43,7 +43,7 @@ export function Navbar() {
     { label: "Contact", href: "#contact" },
   ];
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {

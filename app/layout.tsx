@@ -41,6 +41,7 @@ export default function RootLayout({
         />
       </head>
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-gradient-to-br from-background via-background to-accent/5 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800`}
       >
         {children}
