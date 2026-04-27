@@ -15,7 +15,7 @@ export function HeroSection() {
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/kaiser_kamruzzaman_resume.pdf";
+    link.href = "/Kaiser_Kamruzzaman_Resume.pdf";
     link.download = "Kaiser_Kamruzzaman_Resume.pdf";
     document.body.appendChild(link);
     link.click();
