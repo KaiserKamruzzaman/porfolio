@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   title: "Kaiser Kamruzzaman | Software Engineer ",
   description:
     "Experienced Software Engineer specializing in full-stack development, cloud architecture, and DevOps automation. Building scalable systems with React, Node.js, AWS, and modern technologies.",
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-dark-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
