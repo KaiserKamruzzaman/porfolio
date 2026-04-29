@@ -25,28 +25,19 @@ export function AboutSection() {
               </div>
 
               <p className="text-lg text-foreground/70 leading-relaxed max-w-4xl mx-auto text-justify">
-                Hi, I'm Kaiser Kamruzzaman — a software engineer with experience
-                building full-stack applications, scalable systems, and
-                production-ready automation solutions.
+                I'm a software engineer with 4+ years of experience building
+                full-stack applications and enterprise-grade systems. Currently
+                based in Germany, I work at K Line Europe GmbH where I design
+                and ship production management tools used daily across 10+ teams
+                on the factory floor.
               </p>
 
               <p className="text-lg text-foreground/70 leading-relaxed max-w-4xl mx-auto text-justify">
-                My work spans modern web technologies like Next.js, React,
-                Node.js supported by strong database expertise in PostgreSQL,
-                MySQL, and SQL Server. I also work extensively with cloud and
-                DevOps tooling, including AWS, Docker, Terraform, CI/CD
-                pipelines, Kubernetes, and Nginx, to design efficient and
-                reliable infrastructure.
-              </p>
-              <p className="text-lg text-foreground/70 leading-relaxed max-w-4xl mx-auto text-justify">
-                I am currently expanding my expertise in cloud and DevOps
-                engineering, focusing on automation, deployment workflows, and
-                system scalability.
-              </p>
-              <p className="text-lg text-foreground/70 leading-relaxed max-w-4xl mx-auto text-justify">
-                Driven by clean architecture and continuous improvement, I aim
-                to build technology that delivers measurable value and
-                operational efficiency.
+                My stack spans Next.js, React, Node.js, and PostgreSQL on the
+                application side, backed by hands-on experience with AWS,
+                Docker, Kubernetes, Terraform, and CI/CD pipelines on the
+                infrastructure side. I care about writing clean, maintainable
+                code that solves real problems at scale.
               </p>
 
               <div className="grid grid-cols-3 gap-6 pt-8 max-w-3xl mx-auto">
@@ -66,9 +57,9 @@ export function AboutSection() {
                 </div>
                 <div className="space-y-2">
                   <p className="text-3xl font-display font-bold text-primary dark:text-secondary">
-                    10+
+                    15+
                   </p>
-                  <p className="text-sm text-foreground/60">Tech Skills</p>
+                  <p className="text-sm text-foreground/60">Technologies</p>
                 </div>
               </div>
             </div>

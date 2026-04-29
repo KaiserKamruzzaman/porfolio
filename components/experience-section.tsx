@@ -11,11 +11,11 @@ const experiences = [
     location: "Düsseldorf, Germany",
     period: "2022 – Present",
     highlights: [
-      "Automated pouch printing system → 30% productivity boost",
-      "Dynamic case card system using QR codes",
-      "SLA workflow improving production by 20%",
-      "OEM portal for doctors/distributors",
-      "Lead development on multiple production management workflows",
+      "Built an automated pouch printing system that increased team productivity by 30%",
+      "Designed a QR-code-based dynamic case card system for real-time production tracking",
+      "Developed an SLA workflow engine that improved overall production throughput by 20%",
+      "Built a white-label OEM portal for doctors and distributors, integrated with the MES",
+      "Led full-stack development of production management modules used daily by 10+ teams",
     ],
   },
   {
@@ -24,9 +24,9 @@ const experiences = [
     location: "Dhaka, Bangladesh",
     period: "2019 – 2020",
     highlights: [
-      "Complaint management systems → 25% efficiency improvement",
-      "Malaria pandemic portal for Dhaka City Corporation",
-      "Task Management System for employees",
+      "Built a BPO complaint management system that reduced issue resolution time by 25%",
+      "Developed a pandemic tracking portal for Dhaka City Corporation during the COVID-19 crisis",
+      "Created an internal task management system adopted across all company departments",
     ],
   },
 ];

@@ -51,10 +51,9 @@ export function HeroSection() {
               </p>
 
               <p className="text-lg text-foreground/60 leading-relaxed max-w-md">
-                Building robust, scalable systems through clean code.
-                Specializing in cloud platforms and automation.Delivering
-                enterprise-grade solutions that optimize workflows and drive
-                operational efficiency.Based in Germany.
+                Building robust, scalable systems through clean code —
+                specializing in full-stack development, cloud infrastructure,
+                and DevOps automation. Based in Germany.
               </p>
             </div>
 
