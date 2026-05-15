@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { LoadingScreen } from "@/components/loading-screen";
+import { ChatWidget } from "@/components/chat-widget";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({
@@ -54,6 +55,7 @@ export default function RootLayout({
       >
         <LoadingScreen />
         {children}
+        <ChatWidget />
       </body>
     </html>
   );
