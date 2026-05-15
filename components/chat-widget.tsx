@@ -112,8 +112,9 @@ export function ChatWidget() {
                 <Bot size={16} className="text-primary" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-foreground">Kaiser's Assistant</p>
-                <p className="text-xs text-foreground/50">Powered by GPT-4o mini</p>
+                <p className="text-sm font-semibold text-foreground">
+                  Kaiser's Assistant
+                </p>
               </div>
             </div>
             <button
@@ -153,9 +154,18 @@ export function ChatWidget() {
                 >
                   {msg.content || (
                     <span className="inline-flex gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "0ms" }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "150ms" }} />
-                      <span className="w-1.5 h-1.5 rounded-full bg-current opacity-60 animate-bounce" style={{ animationDelay: "300ms" }} />
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-current opacity-60 animate-bounce"
+                        style={{ animationDelay: "0ms" }}
+                      />
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-current opacity-60 animate-bounce"
+                        style={{ animationDelay: "150ms" }}
+                      />
+                      <span
+                        className="w-1.5 h-1.5 rounded-full bg-current opacity-60 animate-bounce"
+                        style={{ animationDelay: "300ms" }}
+                      />
                     </span>
                   )}
                 </div>
@@ -165,7 +175,9 @@ export function ChatWidget() {
             {/* Suggestions */}
             {showSuggestions && (
               <div className="space-y-2 pt-1">
-                <p className="text-xs text-foreground/40 text-center">Suggested questions</p>
+                <p className="text-xs text-foreground/40 text-center">
+                  Suggested questions
+                </p>
                 <div className="flex flex-wrap gap-2">
                   {SUGGESTED_QUESTIONS.map((q) => (
                     <button
