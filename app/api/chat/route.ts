@@ -1,9 +1,9 @@
 import { NextRequest } from "next/server";
-import OpenAI from "openai";
+import { createGroq } from "@ai-sdk/groq";
+import { streamText } from "ai";
 
-const client = new OpenAI({
+const groq = createGroq({
   apiKey: process.env.GROQ_API_KEY,
-  baseURL: "https://api.groq.com/openai/v1",
 });
 
 const SYSTEM_PREFIX = `You are a helpful assistant for Kaiser Kamruzzaman's portfolio website. Answer questions about his skills, experience, and projects concisely and in a friendly tone. If asked something unrelated to the portfolio, politely redirect the conversation.You can also respond to greetings naturally.
@@ -58,28 +58,12 @@ export async function POST(req: NextRequest) {
   const systemPrompt =
     SYSTEM_PREFIX + (portfolioContent || "(content unavailable)");
 
-  const stream = await client.chat.completions.create({
-    model: "llama-3.1-8b-instant",
-    messages: [{ role: "system", content: systemPrompt }, ...messages],
-    stream: true,
-    max_tokens: 500,
+  const result = streamText({
+    model: groq("llama-3.1-8b-instant"),
+    system: systemPrompt,
+    messages,
+    maxOutputTokens: 500,
   });
 
-  const encoder = new TextEncoder();
-
-  const readable = new ReadableStream({
-    async start(controller) {
-      for await (const chunk of stream) {
-        const content = chunk.choices[0]?.delta?.content ?? "";
-        if (content) {
-          controller.enqueue(encoder.encode(content));
-        }
-      }
-      controller.close();
-    },
-  });
-
-  return new Response(readable, {
-    headers: { "Content-Type": "text/plain; charset=utf-8" },
-  });
+  return result.toTextStreamResponse();
 }
