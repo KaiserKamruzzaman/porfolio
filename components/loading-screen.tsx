@@ -139,7 +139,7 @@ export function LoadingScreen() {
               textTransform: "uppercase",
             }}
           >
-            Software Engineer
+            Full-Stack Software Engineer
           </p>
 
           {/* Progress row */}

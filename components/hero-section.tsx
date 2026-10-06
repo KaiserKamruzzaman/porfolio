@@ -47,7 +47,7 @@ export function HeroSection() {
               </h1>
 
               <p className="text-xl md:text-2xl text-foreground/80 font-medium">
-                Software Engineer & Cloud Practitioner
+                Full-Stack Software Engineer & Cloud Practitioner
               </p>
 
               <p className="text-lg text-foreground/60 leading-relaxed max-w-md">

@@ -25,7 +25,7 @@ export function AboutSection() {
               </div>
 
               <p className="text-lg text-foreground/70 leading-relaxed max-w-4xl mx-auto text-justify">
-                I'm a software engineer with 4+ years of experience building
+                I'm a full-stack software engineer with 4+ years of experience building
                 full-stack applications and enterprise-grade systems. Currently
                 based in Germany, I work at K Line Europe GmbH where I design
                 and ship production management tools used daily across 10+ teams

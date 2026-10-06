@@ -13,9 +13,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Kaiser Kamruzzaman | Software Engineer ",
+  title: "Kaiser Kamruzzaman | Full-Stack Software Engineer ",
   description:
-    "Experienced Software Engineer specializing in full-stack development, cloud architecture, and DevOps automation. Building scalable systems with React, Node.js, AWS, and modern technologies.",
+    "Experienced Full-Stack Software Engineer specializing in cloud architecture and DevOps automation. Building scalable systems with React, Node.js, AWS, and modern technologies.",
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
