@@ -5,12 +5,6 @@ import { GraduationCap, Calendar, MapPin } from "lucide-react";
 
 const education = [
   {
-    degree: "MSc in High Integrity Systems",
-    university: "Frankfurt University of Applied Sciences",
-    location: "Frankfurt, Germany",
-    period: "2022 – 2026",
-  },
-  {
     degree: "BSc in Computer Science & Engineering",
     university: "American International University-Bangladesh",
     location: "Dhaka, Bangladesh",
