@@ -9,7 +9,7 @@ const experiences = [
     role: "Full-Stack Software Engineer",
     company: "K Line Europe GmbH",
     location: "Düsseldorf, Germany",
-    period: "2022 – Present",
+    period: "2022 – 2026",
     highlights: [
       "Built an automated pouch printing system that increased team productivity by 30%",
       "Designed a QR-code-based dynamic case card system for real-time production tracking",
