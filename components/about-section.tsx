@@ -24,26 +24,42 @@ export function AboutSection() {
                 </h2>
               </div>
 
-              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto">
-                I'm a full-stack software engineer with 4+ years of experience building
-                full-stack applications and enterprise-grade systems. Currently
-                based in Germany, I work at K Line Europe GmbH where I design
-                and ship production management tools used daily across 10+ teams
-                on the factory floor.
+              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto text-left">
+                I'm a full-stack software engineer with 5+ years of experience
+                building scalable web applications, enterprise systems, and
+                workflow automation tools.
               </p>
 
-              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto">
-                My stack spans Next.js, React, Node.js, and PostgreSQL on the
-                application side, backed by hands-on experience with AWS,
-                Docker, Kubernetes, Terraform, and CI/CD pipelines on the
-                infrastructure side. I care about writing clean, maintainable
-                code that solves real problems at scale.
+              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto text-left">
+                Previously, at K Line Europe GmbH in Germany, I developed
+                manufacturing management systems used daily by 10+ production
+                teams, automated workflows that improved production efficiency
+                by 30%, and built customer-facing portals for doctors and
+                distributors.
+              </p>
+
+              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto text-left">
+                My core expertise includes{" "}
+                <strong className="font-semibold text-foreground">
+                  React, Next.js, TypeScript, Node.js, and PostgreSQL
+                </strong>
+                , complemented by hands-on experience with{" "}
+                <strong className="font-semibold text-foreground">
+                  AWS, Docker, and CI/CD pipelines
+                </strong>
+                .
+              </p>
+
+              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto text-left">
+                I enjoy solving complex business problems, designing
+                maintainable software architectures, and building applications
+                that make a measurable difference in how businesses operate.
               </p>
 
               <div className="grid grid-cols-3 gap-6 pt-8 max-w-3xl mx-auto">
                 <div className="space-y-2">
                   <p className="text-3xl font-display font-bold text-primary dark:text-secondary">
-                    4+
+                    5+
                   </p>
                   <p className="text-sm text-foreground/60">Years Experience</p>
                 </div>
@@ -52,7 +68,7 @@ export function AboutSection() {
                     10+
                   </p>
                   <p className="text-sm text-foreground/60">
-                    Teams Using My Tools Daily
+                    Production Teams Supported
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -60,7 +76,7 @@ export function AboutSection() {
                     ~7×
                   </p>
                   <p className="text-sm text-foreground/60">
-                    Daily Production Increase
+                    Growth in Daily Production
                   </p>
                 </div>
               </div>
