@@ -8,14 +8,14 @@ export function AboutSection() {
   return (
     <ScrollReveal>
       <section id="about" className="relative py-20 md:py-32">
-        <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-8xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto text-center">
             <div
               ref={ref}
-              className={`space-y-6 transition-all duration-1000 ${
+              className={`space-y-6 transition-all duration-700 ${
                 isInView
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-5"
               }`}
             >
               <div className="space-y-4">
@@ -24,7 +24,7 @@ export function AboutSection() {
                 </h2>
               </div>
 
-              <p className="text-lg text-foreground/70 leading-relaxed max-w-4xl mx-auto text-justify">
+              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto">
                 I'm a full-stack software engineer with 4+ years of experience building
                 full-stack applications and enterprise-grade systems. Currently
                 based in Germany, I work at K Line Europe GmbH where I design
@@ -32,7 +32,7 @@ export function AboutSection() {
                 on the factory floor.
               </p>
 
-              <p className="text-lg text-foreground/70 leading-relaxed max-w-4xl mx-auto text-justify">
+              <p className="text-lg text-foreground/70 leading-relaxed max-w-3xl mx-auto">
                 My stack spans Next.js, React, Node.js, and PostgreSQL on the
                 application side, backed by hands-on experience with AWS,
                 Docker, Kubernetes, Terraform, and CI/CD pipelines on the
@@ -49,17 +49,19 @@ export function AboutSection() {
                 </div>
                 <div className="space-y-2">
                   <p className="text-3xl font-display font-bold text-primary dark:text-secondary">
-                    20+
+                    10+
                   </p>
                   <p className="text-sm text-foreground/60">
-                    Projects Delivered
+                    Teams Using My Tools Daily
                   </p>
                 </div>
                 <div className="space-y-2">
                   <p className="text-3xl font-display font-bold text-primary dark:text-secondary">
-                    15+
+                    ~7×
                   </p>
-                  <p className="text-sm text-foreground/60">Technologies</p>
+                  <p className="text-sm text-foreground/60">
+                    Daily Production Increase
+                  </p>
                 </div>
               </div>
             </div>

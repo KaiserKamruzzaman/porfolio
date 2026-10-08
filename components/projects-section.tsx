@@ -82,10 +82,10 @@ export function ProjectsSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={ref}
-            className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
+            className={`space-y-2 text-center mb-16 transition-all duration-700 ${
               isInView
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-5"
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold">
@@ -96,21 +96,21 @@ export function ProjectsSection() {
           <div className="relative group">
             <div
               ref={scrollContainerRef}
-              className="flex gap-6 lg:gap-8 overflow-x-auto pb-4 pt-2 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+              className="flex gap-6 lg:gap-8 overflow-x-auto pt-3 pb-6 scroll-smooth snap-x snap-mandatory scrollbar-hide"
             >
               {projects.map((project, index) => (
                 <div
                   key={project.title}
-                  className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start transition-all duration-1000 ${
+                  className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start group/card transition-all duration-700 ${
                     isInView
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-5"
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <div className="h-full p-6 rounded-2xl bg-card border border-border hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 dark:hover:shadow-primary/20 flex flex-col group-hover:-translate-y-2">
+                  <div className="h-full p-6 rounded-2xl bg-card border border-border hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 dark:hover:shadow-primary/20 flex flex-col hover:-translate-y-1">
                     <div className="space-y-4 flex-1">
-                      <h3 className="text-2xl font-display font-bold text-foreground group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl font-display font-bold text-foreground group-hover/card:text-primary transition-colors">
                         {project.title}
                       </h3>
 

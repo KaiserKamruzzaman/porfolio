@@ -18,7 +18,7 @@ const certifications = [
     link: "https://www.credly.com/badges/723b8394-a364-4831-8b22-87d8cf4afe0f",
   },
   {
-    title: "AWS Certified Solutions Architect Associate",
+    title: "AWS Solutions Architect Associate",
     issuer: "Udemy",
     date: "2025",
     description:
@@ -64,10 +64,10 @@ export function CertificationsSection() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={ref}
-            className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
+            className={`space-y-2 text-center mb-16 transition-all duration-700 ${
               isInView
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-5"
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold">
@@ -83,19 +83,19 @@ export function CertificationsSection() {
           <div className="relative group">
             <div
               ref={scrollContainerRef}
-              className="flex gap-6 lg:gap-8 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+              className="flex gap-6 lg:gap-8 overflow-x-auto pt-3 pb-6 scroll-smooth snap-x snap-mandatory scrollbar-hide"
             >
               {certifications.map((cert, index) => (
                 <div
                   key={cert.title}
-                  className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start transition-all duration-1000 ${
+                  className={`flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] snap-start group/card transition-all duration-700 ${
                     isInView
                       ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-10"
+                      : "opacity-0 translate-y-5"
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <div className="h-full p-6 rounded-2xl bg-card border border-border hover:border-secondary/50 dark:hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/10 dark:hover:shadow-secondary/20 flex flex-col group-hover:-translate-y-2">
+                  <div className="h-full p-6 rounded-2xl bg-card border border-border hover:border-secondary/50 dark:hover:border-secondary/50 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/10 dark:hover:shadow-secondary/20 flex flex-col hover:-translate-y-1">
                     <div className="flex items-start justify-between gap-4 mb-4">
                       <Award className="w-8 h-8 text-secondary flex-shrink-0" />
                       <span className="text-xs font-semibold px-3 py-1 rounded-full bg-secondary/20 text-secondary">
@@ -105,7 +105,7 @@ export function CertificationsSection() {
 
                     <div className="space-y-3 flex-1">
                       <div>
-                        <h3 className="text-2xl font-display font-bold text-foreground group-hover:text-secondary transition-colors">
+                        <h3 className="text-2xl font-display font-bold text-foreground group-hover/card:text-secondary transition-colors">
                           {cert.title}
                         </h3>
                         <p className="text-sm text-foreground/60 mt-1">

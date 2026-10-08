@@ -16,12 +16,12 @@ export function EducationSection() {
   const [ref, isInView] = useInView();
 
   return (
-    <section className="relative py-20 md:py-32">
+    <section id="education" className="relative py-20 md:py-32">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={ref}
-          className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          className={`space-y-2 text-center mb-16 transition-all duration-700 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold">
@@ -33,10 +33,10 @@ export function EducationSection() {
           {education.map((edu, index) => (
             <div
               key={edu.degree}
-              className={`transition-all duration-1000 ${
+              className={`transition-all duration-700 ${
                 isInView
                   ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
+                  : "opacity-0 translate-y-5"
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >

@@ -55,8 +55,8 @@ export function ContactSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={ref}
-          className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          className={`space-y-2 text-center mb-16 transition-all duration-700 ${
+            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-display font-bold">
@@ -67,10 +67,10 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left side: Contact Information */}
           <div
-            className={`space-y-8 transition-all duration-1000 ${
+            className={`space-y-8 transition-all duration-700 ${
               isInView
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-5"
             }`}
           >
             <div>
@@ -132,10 +132,10 @@ export function ContactSection() {
 
           {/* Right side: Contact Form */}
           <div
-            className={`transition-all duration-1000 ${
+            className={`transition-all duration-700 ${
               isInView
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-5"
             }`}
             style={{ transitionDelay: "300ms" }}
           >

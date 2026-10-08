@@ -14,27 +14,13 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800">
       <Navbar />
       <HeroSection />
-      <div id="about">
-        <AboutSection />
-      </div>
-      <div id="skills">
-        <SkillsSection />
-      </div>
-      <div id="experience">
-        <ExperienceSection />
-      </div>
-      <div id="projects">
-        <ProjectsSection />
-      </div>
-      <div id="certifications">
-        <CertificationsSection />
-      </div>
-      <div id="education">
-        <EducationSection />
-      </div>
-      <div id="contact">
-        <ContactSection />
-      </div>
+      <AboutSection />
+      <SkillsSection />
+      <ExperienceSection />
+      <ProjectsSection />
+      <CertificationsSection />
+      <EducationSection />
+      <ContactSection />
       <Footer />
     </main>
   )

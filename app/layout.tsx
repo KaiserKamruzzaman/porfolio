@@ -4,6 +4,7 @@ import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { LoadingScreen } from "@/components/loading-screen";
 import { ChatWidget } from "@/components/chat-widget";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const poppins = Poppins({
@@ -12,10 +13,32 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+const siteUrl = "https://kaiserkamruzzaman.com";
+const description =
+  "Experienced Full-Stack Software Engineer specializing in cloud architecture and DevOps automation. Building scalable systems with React, Node.js, AWS, and modern technologies.";
+
 export const metadata: Metadata = {
-  title: "Kaiser Kamruzzaman | Full-Stack Software Engineer ",
-  description:
-    "Experienced Full-Stack Software Engineer specializing in cloud architecture and DevOps automation. Building scalable systems with React, Node.js, AWS, and modern technologies.",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Kaiser Kamruzzaman | Full-Stack Software Engineer",
+    template: "%s | Kaiser Kamruzzaman",
+  },
+  description,
+  authors: [{ name: "Kaiser Kamruzzaman", url: siteUrl }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: siteUrl,
+    siteName: "Kaiser Kamruzzaman",
+    title: "Kaiser Kamruzzaman | Full-Stack Software Engineer",
+    description,
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kaiser Kamruzzaman | Full-Stack Software Engineer",
+    description,
+  },
   icons: {
     icon: [
       { url: "/icon.svg", type: "image/svg+xml" },
@@ -31,31 +54,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                if (localStorage.getItem('theme') === 'light') {
-                  document.documentElement.classList.remove('dark');
-                } else {
-                  document.documentElement.classList.add('dark');
-                }
-              } catch (e) {
-                document.documentElement.classList.add('dark');
-              }
-            `,
-          }}
-        />
-      </head>
+    <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} font-sans antialiased bg-gradient-to-br from-background via-background to-accent/5 dark:from-slate-950 dark:via-slate-900 dark:to-slate-800`}
       >
-        <LoadingScreen />
-        {children}
-        <ChatWidget />
+        <ThemeProvider attribute="class" defaultTheme="dark" disableTransitionOnChange>
+          <LoadingScreen />
+          {children}
+          <ChatWidget />
+        </ThemeProvider>
       </body>
     </html>
   );

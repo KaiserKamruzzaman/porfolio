@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, Mail, Github, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { ChevronRight, Mail, Github, Linkedin, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PolygonMeshBackground } from "./polygon-mesh-background";
 
@@ -76,9 +77,9 @@ export function HeroSection() {
               <button
                 onClick={handleDownloadResume}
                 className="h-12 px-8 text-base font-semibold bg-transparent border border-primary/30 hover:border-primary/60 
-                text-foreground hover:bg-primary/10 dark:hover:bg-primary/20 transition-all rounded-lg flex items-center gap-2"
+                text-foreground hover:bg-primary/10 dark:hover:bg-primary/20 transition-all rounded-lg flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-ring"
               >
-                <span className="text-lg">⬇</span>
+                <Download className="h-5 w-5" />
                 Download Resume
               </button>
             </div>
@@ -89,9 +90,10 @@ export function HeroSection() {
               <div className="flex gap-3">
                 <a
                   href="https://github.com/KaiserKamruzzaman"
+                  aria-label="GitHub"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 border border-border hover:border-primary/50 transition-all group"
+                  className="p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 border border-border hover:border-primary/50 transition-all group focus-visible:outline-2 focus-visible:outline-ring"
                 >
                   <Github
                     size={20}
@@ -100,9 +102,10 @@ export function HeroSection() {
                 </a>
                 <a
                   href="https://www.linkedin.com/in/kaiserkamruzzaman"
+                  aria-label="LinkedIn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 border border-border hover:border-primary/50 transition-all group"
+                  className="p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 border border-border hover:border-primary/50 transition-all group focus-visible:outline-2 focus-visible:outline-ring"
                 >
                   <Linkedin
                     size={20}
@@ -111,7 +114,8 @@ export function HeroSection() {
                 </a>
                 <a
                   href="mailto:kaiserkamruzzaman@gmail.com"
-                  className="p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 border border-border hover:border-primary/50 transition-all group"
+                  aria-label="Email"
+                  className="p-3 rounded-lg bg-card hover:bg-primary/10 dark:hover:bg-primary/20 border border-border hover:border-primary/50 transition-all group focus-visible:outline-2 focus-visible:outline-ring"
                 >
                   <Mail
                     size={20}
@@ -128,17 +132,20 @@ export function HeroSection() {
               isLoaded ? "animate-slide-in-right" : ""
             }`}
           >
-            <div className="relative w-80 h-80 md:w-96 md:h-96 animate-float">
+            <div className="relative w-80 h-80 md:w-96 md:h-96">
               {/* Animated border circles */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-2xl opacity-75 animate-pulse" />
-              <div className="absolute inset-4 rounded-full border-2 border-primary/30 dark:border-primary/50 animate-shimmer" />
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-2xl opacity-60" />
+              <div className="absolute inset-4 rounded-full border-2 border-primary/30 dark:border-primary/50" />
 
               {/* Profile Image Container */}
               <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-primary/50 dark:border-primary/40 shadow-2xl bg-gradient-to-br from-card to-muted">
-                <img
+                <Image
                   src="/image.jpeg"
                   alt="Kaiser Kamruzzaman"
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 384px, 320px"
+                  className="object-cover"
                 />
 
                 {/* Overlay gradient */}
@@ -147,24 +154,6 @@ export function HeroSection() {
 
             </div>
           </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <span className="text-sm text-foreground/50">Scroll to explore</span>
-          <svg
-            className="w-6 h-6 text-primary/50"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
         </div>
       </div>
     </section>

@@ -40,10 +40,10 @@ export function ExperienceSection() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={ref}
-            className={`space-y-2 text-center mb-16 transition-all duration-1000 ${
+            className={`space-y-2 text-center mb-16 transition-all duration-700 ${
               isInView
                 ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
+                : "opacity-0 translate-y-5"
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold">
@@ -55,10 +55,10 @@ export function ExperienceSection() {
             {experiences.map((exp, index) => (
               <div
                 key={exp.company}
-                className={`transition-all duration-1000 ${
+                className={`transition-all duration-700 ${
                   isInView
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-10"
+                    : "opacity-0 translate-y-5"
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >

@@ -3,7 +3,8 @@
 import { useEffect, useState, useRef } from "react";
 
 const FULL_NAME = "Kaiser Kamruzzaman";
-const TYPING_SPEED = 55;
+const TYPING_SPEED = 40;
+const SEEN_KEY = "loader-seen-v2";
 
 export function LoadingScreen() {
   const [displayed, setDisplayed] = useState("");
@@ -13,10 +14,31 @@ export function LoadingScreen() {
   const [phase, setPhase] = useState<"typing" | "counting" | "fading" | "hidden">("typing");
   const rafRef = useRef<number>(0);
 
+  // Show the intro once per session; skip it for returning visits
+  useEffect(() => {
+    try {
+      const seen = sessionStorage.getItem(SEEN_KEY);
+      if (seen) setPhase("hidden");
+    } catch {
+      /* storage unavailable: just play the intro */
+    }
+  }, []);
+
   // Typing effect
   useEffect(() => {
+    if (phase === "hidden") return;
     let i = 0;
     let timeout: ReturnType<typeof setTimeout>;
+
+    // Reduced motion: show the full name at once instead of typing it
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplayed(FULL_NAME);
+      timeout = setTimeout(() => {
+        setShowMeta(true);
+        setPhase("counting");
+      }, 300);
+      return () => clearTimeout(timeout);
+    }
 
     const type = () => {
       if (i < FULL_NAME.length) {
@@ -28,19 +50,19 @@ export function LoadingScreen() {
         setTimeout(() => {
           setShowMeta(true);
           setPhase("counting");
-        }, 300);
+        }, 150);
       }
     };
 
-    timeout = setTimeout(type, 300);
+    timeout = setTimeout(type, 150);
     return () => clearTimeout(timeout);
-  }, []);
+  }, [phase === "hidden"]);
 
   // Progress counter
   useEffect(() => {
     if (phase !== "counting") return;
 
-    const duration = 900;
+    const duration = 600;
     const start = performance.now();
 
     const tick = (now: number) => {
@@ -53,8 +75,15 @@ export function LoadingScreen() {
       } else {
         setTimeout(() => {
           setPhase("fading");
-          setTimeout(() => setPhase("hidden"), 700);
-        }, 150);
+          setTimeout(() => {
+            setPhase("hidden");
+            try {
+              sessionStorage.setItem(SEEN_KEY, "1");
+            } catch {
+              /* ignore */
+            }
+          }, 400);
+        }, 100);
       }
     };
 
@@ -70,7 +99,7 @@ export function LoadingScreen() {
       style={{
         background: "#030712",
         opacity: phase === "fading" ? 0 : 1,
-        transition: "opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1)",
+        transition: "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
         pointerEvents: phase === "fading" ? "none" : "auto",
       }}
     >
@@ -123,7 +152,7 @@ export function LoadingScreen() {
           style={{
             opacity: showMeta ? 1 : 0,
             transform: showMeta ? "translateY(0)" : "translateY(8px)",
-            transition: "opacity 0.5s ease, transform 0.5s ease",
+            transition: "opacity 0.4s ease, transform 0.5s ease",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -135,7 +164,7 @@ export function LoadingScreen() {
             style={{
               fontSize: "0.8rem",
               letterSpacing: "0.2em",
-              color: "#475569",
+              color: "#94a3b8",
               textTransform: "uppercase",
             }}
           >
@@ -167,7 +196,7 @@ export function LoadingScreen() {
               style={{
                 fontFamily: "ui-monospace, monospace",
                 fontSize: "0.7rem",
-                color: "#1e293b",
+                color: "#64748b",
                 minWidth: "34px",
               }}
             >
@@ -183,11 +212,11 @@ export function LoadingScreen() {
         style={{
           fontSize: "0.6rem",
           letterSpacing: "0.2em",
-          color: "#1e293b",
+          color: "#64748b",
           textTransform: "uppercase",
         }}
       >
-        Portfolio 2025
+        Portfolio
       </div>
 
       <style>{`

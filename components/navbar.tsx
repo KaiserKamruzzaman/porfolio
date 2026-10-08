@@ -2,46 +2,69 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Experience", href: "#experience" },
+  { label: "Projects", href: "#projects" },
+  { label: "Certifications", href: "#certifications" },
+  { label: "Education", href: "#education" },
+  { label: "Contact", href: "#contact" },
+];
+
 export function Navbar() {
-  const [isDark, setIsDark] = useState(true);
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const isDarkMode = savedTheme === "light" ? false : true;
-    setIsDark(isDarkMode);
+  // Theme is only known on the client, so render the toggle icon after mount
+  useEffect(() => setMounted(true), []);
+  const isDark = resolvedTheme !== "light";
 
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleDarkMode = () => {
-    if (isDark) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-      setIsDark(true);
-    }
-  };
+  // Scroll-spy: highlight the section crossing a line near the top of the viewport
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.querySelector(link.href))
+      .filter((el): el is Element => el !== null);
 
-  const navLinks = [
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Certifications", href: "#certifications" },
-    { label: "Contact", href: "#contact" },
-  ];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(`#${entry.target.id}`);
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+    sections.forEach((section) => observer.observe(section));
+
+    // Clear the highlight when back in the hero
+    const handleTop = () => {
+      if (window.scrollY < 200) setActiveSection("");
+    };
+    window.addEventListener("scroll", handleTop, { passive: true });
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleTop);
+    };
+  }, []);
+
+  const toggleDarkMode = () => setTheme(isDark ? "light" : "dark");
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -74,7 +97,12 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="text-base font-medium text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer"
+                aria-current={activeSection === link.href ? "true" : undefined}
+                className={`relative text-base font-medium transition-colors duration-300 cursor-pointer after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-primary after:transition-transform after:duration-300 ${
+                  activeSection === link.href
+                    ? "text-primary after:scale-x-100"
+                    : "text-foreground/80 hover:text-primary after:scale-x-0"
+                }`}
               >
                 {link.label}
               </a>
@@ -88,11 +116,13 @@ export function Navbar() {
               className="p-2 rounded-lg hover:bg-muted transition-colors"
               aria-label="Toggle dark mode"
             >
-              {isDark ? <Sun size={20} /> : <Moon size={20} />}
+              {mounted ? isDark ? <Sun size={20} /> : <Moon size={20} /> : <Sun size={20} className="opacity-0" />}
             </button>
 
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMobileMenuOpen}
               className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -108,7 +138,10 @@ export function Navbar() {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="block px-4 py-2 text-base font-medium text-foreground/80 hover:text-primary transition-colors duration-300 cursor-pointer"
+                aria-current={activeSection === link.href ? "true" : undefined}
+                className={`block px-4 py-2 text-base font-medium hover:text-primary transition-colors duration-300 cursor-pointer ${
+                  activeSection === link.href ? "text-primary" : "text-foreground/80"
+                }`}
               >
                 {link.label}
               </a>

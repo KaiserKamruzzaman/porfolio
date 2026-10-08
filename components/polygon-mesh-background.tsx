@@ -24,7 +24,10 @@ export function PolygonMeshBackground() {
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-    let animationFrameId: number
+    let animationFrameId = 0
+    let running = false
+    let width = 0
+    let height = 0
 
     const particleCount = 50
     const particles: Particle[] = []
@@ -37,15 +40,21 @@ export function PolygonMeshBackground() {
     const pointer = { x: 0, y: 0, active: false, alpha: 0 }
 
     const resizeCanvas = () => {
-      const prevWidth = canvas.width
-      const prevHeight = canvas.height
-      canvas.width = window.innerWidth
-      canvas.height = window.innerHeight
+      const prevWidth = width
+      const prevHeight = height
+      const rect = canvas.getBoundingClientRect()
+      width = rect.width
+      height = rect.height
+      // Back the canvas at device resolution so lines stay sharp on retina screens
+      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      canvas.width = Math.round(width * dpr)
+      canvas.height = Math.round(height * dpr)
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
       // Rescale particles so they stay spread across the new size
       if (prevWidth && prevHeight) {
-        const sx = canvas.width / prevWidth
-        const sy = canvas.height / prevHeight
+        const sx = width / prevWidth
+        const sy = height / prevHeight
         particles.forEach((p) => {
           p.x *= sx
           p.y *= sy
@@ -61,7 +70,7 @@ export function PolygonMeshBackground() {
       const lineRgb = isDark ? "100, 200, 255" : "59, 130, 246"
       const coreColor = isDark ? "rgba(255, 255, 255, 0.9)" : "rgba(59, 130, 246, 0.9)"
 
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.clearRect(0, 0, width, height)
 
       // Lines from the cursor to nearby particles
       if (pointer.alpha > 0.01) {
@@ -139,12 +148,12 @@ export function PolygonMeshBackground() {
         particle.y += particle.vy + particle.oy
 
         // Bounce off walls
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1
+        if (particle.x < 0 || particle.x > width) particle.vx *= -1
+        if (particle.y < 0 || particle.y > height) particle.vy *= -1
 
         // Keep particles in bounds
-        particle.x = Math.max(0, Math.min(canvas.width, particle.x))
-        particle.y = Math.max(0, Math.min(canvas.height, particle.y))
+        particle.x = Math.max(0, Math.min(width, particle.x))
+        particle.y = Math.max(0, Math.min(height, particle.y))
       })
     }
 
@@ -154,13 +163,28 @@ export function PolygonMeshBackground() {
       animationFrameId = requestAnimationFrame(animate)
     }
 
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    const start = () => {
+      if (running) return
+      running = true
+      animate()
+    }
+    const stop = () => {
+      running = false
+      cancelAnimationFrame(animationFrameId)
+    }
+
+    const rect = canvas.getBoundingClientRect()
+    width = rect.width
+    height = rect.height
+    const dpr = Math.min(window.devicePixelRatio || 1, 2)
+    canvas.width = Math.round(width * dpr)
+    canvas.height = Math.round(height * dpr)
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * width,
+        y: Math.random() * height,
         vx: (Math.random() - 0.5) * 0.5,
         vy: (Math.random() - 0.5) * 0.5,
         ox: 0,
@@ -176,8 +200,8 @@ export function PolygonMeshBackground() {
         e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom
       pointer.active = inside
       if (inside) {
-        pointer.x = ((e.clientX - rect.left) / rect.width) * canvas.width
-        pointer.y = ((e.clientY - rect.top) / rect.height) * canvas.height
+        pointer.x = e.clientX - rect.left
+        pointer.y = e.clientY - rect.top
       }
     }
     const handlePointerLeave = () => {
@@ -186,19 +210,34 @@ export function PolygonMeshBackground() {
 
     window.addEventListener("resize", resizeCanvas)
 
+    let observer: IntersectionObserver | undefined
+    let cleanupVisibility: (() => void) | undefined
+
     if (reducedMotion) {
       draw()
     } else {
       window.addEventListener("pointermove", handlePointerMove)
       document.documentElement.addEventListener("pointerleave", handlePointerLeave)
-      animate()
+
+      // Only animate while the hero is on screen and the tab is visible
+      let visible = true
+      const sync = () => (visible && !document.hidden ? start() : stop())
+      observer = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting
+        sync()
+      })
+      observer.observe(canvas)
+      document.addEventListener("visibilitychange", sync)
+      cleanupVisibility = () => document.removeEventListener("visibilitychange", sync)
     }
 
     return () => {
+      observer?.disconnect()
+      cleanupVisibility?.()
+      stop()
       window.removeEventListener("resize", resizeCanvas)
       window.removeEventListener("pointermove", handlePointerMove)
       document.documentElement.removeEventListener("pointerleave", handlePointerLeave)
-      cancelAnimationFrame(animationFrameId)
     }
   }, [])
 
