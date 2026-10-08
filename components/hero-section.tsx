@@ -128,7 +128,7 @@ export function HeroSection() {
               isLoaded ? "animate-slide-in-right" : ""
             }`}
           >
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
+            <div className="relative w-80 h-80 md:w-96 md:h-96 animate-float">
               {/* Animated border circles */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-2xl opacity-75 animate-pulse" />
               <div className="absolute inset-4 rounded-full border-2 border-primary/30 dark:border-primary/50 animate-shimmer" />
@@ -136,7 +136,7 @@ export function HeroSection() {
               {/* Profile Image Container */}
               <div className="absolute inset-0 rounded-full overflow-hidden border-2 border-primary/50 dark:border-primary/40 shadow-2xl bg-gradient-to-br from-card to-muted">
                 <img
-                  src="./image.jpeg"
+                  src="/image.jpeg"
                   alt="Kaiser Kamruzzaman"
                   className="w-full h-full object-cover"
                 />
@@ -145,17 +145,6 @@ export function HeroSection() {
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
 
-              {/* Floating animation */}
-              <style>{`
-                @keyframes floatProfile {
-                  0%, 100% { transform: translateY(0px); }
-                  50% { transform: translateY(-30px); }
-                }
-                .animate-float-profile {
-                  animation: floatProfile 8s ease-in-out infinite;
-                }
-              `}</style>
-              <div className="absolute inset-0 animate-float-profile" />
             </div>
           </div>
         </div>

@@ -228,6 +228,19 @@ html {
   animation: shimmer 2s ease-in-out infinite;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-slide-up-fade,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-scale-in,
+  .animate-shimmer,
+  .animate-pulse,
+  .animate-bounce {
+    animation: none;
+  }
+}
+
 /* Stagger animation delays */
 .stagger-1 {
   animation-delay: 0.1s;
