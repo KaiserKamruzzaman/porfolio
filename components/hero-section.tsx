@@ -48,13 +48,14 @@ export function HeroSection() {
               </h1>
 
               <p className="text-xl md:text-2xl text-foreground/80 font-medium">
-                Full-Stack Software Engineer & Cloud Practitioner
+                Full-Stack Software Engineer
               </p>
 
               <p className="text-lg text-foreground/60 leading-relaxed max-w-md">
-                Building robust, scalable systems through clean code —
-                specializing in full-stack development, cloud infrastructure,
-                and DevOps automation. Based in Germany.
+                I build scalable web applications and enterprise software that
+                solve real business problems. With 5+ years of experience, I
+                specialize in React, Next.js, Node.js, and PostgreSQL, with
+                hands-on experience in AWS and cloud infrastructure.
               </p>
             </div>
 
@@ -151,7 +152,6 @@ export function HeroSection() {
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent" />
               </div>
-
             </div>
           </div>
         </div>
