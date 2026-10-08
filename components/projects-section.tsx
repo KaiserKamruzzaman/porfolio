@@ -18,11 +18,12 @@ const projects = [
       "API integration for data collection, notifications & forecasting",
     ],
     tech: [
+      "React",
       "Next.js",
       "Node.js",
-      "Chart.js",
-      "REST API",
       "PostgreSQL",
+      "TypeScript",
+      "AWS",
       "Prisma",
     ],
     link: "#",
@@ -37,7 +38,15 @@ const projects = [
       "End-to-end order management & real-time status tracking",
       "Direct communication channel between OEM providers & company",
     ],
-    tech: ["React", "Node.js", "PostgreSQL", "REST API"],
+    tech: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "TypeScript",
+      "AWS",
+      "Prisma",
+    ],
     link: "#",
   },
   {
@@ -83,9 +92,7 @@ export function ProjectsSection() {
           <div
             ref={ref}
             className={`space-y-2 text-center mb-16 transition-all duration-700 ${
-              isInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-5"
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold">

@@ -9,24 +9,34 @@ const experiences = [
     role: "Full-Stack Software Engineer",
     company: "K Line Europe GmbH",
     location: "Düsseldorf, Germany",
-    period: "2022 – 2026",
+    period: "February 2022 – September 2026",
+    stack: [
+      "React",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "TypeScript",
+      "AWS",
+      "Prisma",
+    ],
     highlights: [
-      "Built an automated pouch printing system that increased team productivity by 30%",
-      "Designed a QR-code-based dynamic case card system for real-time production tracking",
-      "Developed an SLA workflow engine that improved overall production throughput by 20%",
-      "Built a white-label OEM portal for doctors and distributors, integrated with the MES",
-      "Led full-stack development of production management modules used daily by 10+ teams",
+      "Developed and maintained a Manufacturing Execution System (MES) used by 10+ production teams to track products across 20 production stages, supporting a nearly 7× increase in daily production.",
+      "Automated pouch printing workflows, improving production efficiency by 30% and reducing manual errors.",
+      "Implemented an SLA workflow that improved production throughput by 20% and streamlined revenue calculations.",
+      "Built a white-label OEM portal for doctors and distributors, supporting order management, communication, and production tracking.",
+      "Developed a QR-code-based dynamic case card system, centralizing product information from 3D printing through shipment.",
     ],
   },
   {
     role: "Programmer",
     company: "Digicon Technologies Ltd",
     location: "Dhaka, Bangladesh",
-    period: "2019 – 2020",
+    period: "July 2019 – December 2020",
+    stack: ["PHP (OOP)", "MySQL", "JavaScript", "Laravel", "jQuery"],
     highlights: [
-      "Built a BPO complaint management system that reduced issue resolution time by 25%",
-      "Developed a pandemic tracking portal for Dhaka City Corporation during the COVID-19 crisis",
-      "Created an internal task management system adopted across all company departments",
+      "Developed complaint management systems using PHP and MySQL, improving call-center efficiency and reducing information errors by 25%.",
+      "Built a complaint management portal for malaria control, adopted by Dhaka City Corporation.",
+      "Created an internal task management system for assigning, tracking, and monitoring employee tasks across departments.",
     ],
   },
 ];
@@ -41,9 +51,7 @@ export function ExperienceSection() {
           <div
             ref={ref}
             className={`space-y-2 text-center mb-16 transition-all duration-700 ${
-              isInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-5"
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold">
@@ -96,6 +104,17 @@ export function ExperienceSection() {
                         </li>
                       ))}
                     </ul>
+
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {exp.stack.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2.5 py-1 text-xs font-medium rounded-full border border-primary/20 bg-primary/5 text-foreground/70"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
