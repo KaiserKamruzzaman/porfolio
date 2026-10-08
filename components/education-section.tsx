@@ -9,6 +9,14 @@ const education = [
     university: "American International University-Bangladesh",
     location: "Dhaka, Bangladesh",
     period: "2015 – 2018",
+    coursework: [
+      "Data Structures & Algorithms",
+      "Object-Oriented Programming",
+      "Database Systems",
+      "Operating Systems",
+      "Computer Networks",
+      "Machine Learning",
+    ],
   },
 ];
 
@@ -63,6 +71,22 @@ export function EducationSection() {
                         <Calendar className="w-4 h-4" />
                         {edu.period}
                       </div>
+                    </div>
+
+                    <div className="pt-5 mt-4 border-t border-border/60 space-y-3">
+                      <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground/50">
+                        Relevant Coursework
+                      </h4>
+                      <ul className="flex flex-wrap gap-2">
+                        {edu.coursework.map((course) => (
+                          <li
+                            key={course}
+                            className="px-3 py-1 rounded-full text-sm text-foreground/70 border border-border"
+                          >
+                            {course}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>

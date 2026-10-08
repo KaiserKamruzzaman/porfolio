@@ -3,7 +3,11 @@
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 
 const socials = [
-  { label: "GitHub", href: "https://github.com/KaiserKamruzzaman", icon: Github },
+  {
+    label: "GitHub",
+    href: "https://github.com/KaiserKamruzzaman",
+    icon: Github,
+  },
   {
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/kaiserkamruzzaman",
@@ -23,7 +27,7 @@ export function Footer() {
             Kaiser Kamruzzaman
           </p>
           <p className="text-sm text-foreground/60">
-            © {currentYear} · Duisburg, Germany
+            © {currentYear}. All rights reserved.
           </p>
         </div>
 
@@ -35,7 +39,7 @@ export function Footer() {
               target={href.startsWith("http") ? "_blank" : undefined}
               rel="noopener noreferrer"
               aria-label={label}
-              className="p-2.5 rounded-lg border border-border text-foreground/60 hover:text-primary hover:border-primary/50 transition-colors focus-visible:outline-2 focus-visible:outline-ring"
+              className="flex items-center justify-center w-11 h-11 rounded-xl border border-foreground/15 text-foreground/60 hover:text-primary hover:border-primary/50 transition-colors focus-visible:outline-2 focus-visible:outline-ring"
             >
               <Icon size={18} />
             </a>
@@ -47,7 +51,7 @@ export function Footer() {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             aria-label="Back to top"
-            className="p-2.5 rounded-lg border border-border text-foreground/60 hover:text-primary hover:border-primary/50 transition-colors focus-visible:outline-2 focus-visible:outline-ring"
+            className="flex items-center justify-center w-11 h-11 rounded-xl border border-foreground/15 text-foreground/60 hover:text-primary hover:border-primary/50 transition-colors focus-visible:outline-2 focus-visible:outline-ring"
           >
             <ArrowUp size={18} />
           </a>

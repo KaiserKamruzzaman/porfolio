@@ -4,7 +4,7 @@ import type React from "react";
 
 import { useState } from "react";
 import { useInView } from "@/hooks/use-in-view";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Linkedin, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ContactSection() {
@@ -68,9 +68,7 @@ export function ContactSection() {
           {/* Left side: Contact Information */}
           <div
             className={`space-y-8 transition-all duration-700 ${
-              isInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-5"
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
           >
             <div>
@@ -78,9 +76,10 @@ export function ContactSection() {
                 Let's Connect
               </h3>
               <p className="text-lg text-foreground/60 max-w-lg">
-                I'm always interested in discussing new opportunities,
-                innovative projects, or potential collaborations. Feel free to
-                reach out!
+                I'm open to full-stack software engineering opportunities,
+                interesting projects, and meaningful collaborations. Whether
+                you're hiring, have a project in mind, or simply want to
+                connect, feel free to reach out.
               </p>
             </div>
 
@@ -93,16 +92,15 @@ export function ContactSection() {
                   href: "mailto:kaiserkamruzzaman@gmail.com",
                 },
                 {
-                  icon: Phone,
-                  label: "Phone",
-                  value: "+49 155-60514989",
-                  href: "tel:+49155-60514989",
+                  icon: Linkedin,
+                  label: "LinkedIn",
+                  value: "linkedin.com/in/kaiserkamruzzaman",
+                  href: "https://www.linkedin.com/in/kaiserkamruzzaman",
                 },
                 {
                   icon: MapPin,
                   label: "Location",
                   value: "Duisburg, Germany",
-                  href: "#",
                 },
               ].map((contact, index) => {
                 const Icon = contact.icon;
@@ -133,9 +131,7 @@ export function ContactSection() {
           {/* Right side: Contact Form */}
           <div
             className={`transition-all duration-700 ${
-              isInView
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-5"
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
             }`}
             style={{ transitionDelay: "300ms" }}
           >
@@ -197,7 +193,7 @@ export function ContactSection() {
                       setFormData({ ...formData, message: e.target.value })
                     }
                     className="w-full px-4 py-3 rounded-lg bg-muted border border-input focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all resize-none"
-                    placeholder="Tell me about your project..."
+                    placeholder="Tell me about the opportunity or project..."
                   />
                 </div>
 
